@@ -43,6 +43,9 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <input type="text" id="form4Email" class="form-control" placeholder="Adresse mail"/>
+                        </div>
                     </form>
                 </div>
 
