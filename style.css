@@ -1,0 +1,121 @@
+/* connexion */
+body {
+    text-align: center;
+}
+
+.champs{
+    margin: 1.5em;
+}
+
+#oublie{
+    margin: 1em;
+}
+
+#connect {
+    position: fixed; 
+    top: 16em; 
+    bottom: 0; 
+    left: 42em; 
+    right: 0;
+    text-align: center;
+    width: 30em;
+    height: 26em;
+    border: solid 2px black;
+    background-color: #AAAAAA;
+    border-radius: 5%;
+}
+
+#blabla{
+    position: absolute; 
+    width: 28em; 
+    height: 24em; 
+    top:0; 
+    bottom:0; 
+    left:0; 
+    right: 0; 
+    margin: auto;
+}
+
+#paragraphe{
+    padding-top: 0.8em;
+    padding-left: 2em;
+    padding-right: 2em;
+    margin-bottom: 1em;
+    background-color: #E2E2E2;
+    border: dashed 2px black;
+}
+
+#champsconnection {
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    background-color: #D9D9D9;
+    border: solid 2px black;
+}
+
+.input{
+    color: white;
+    margin: 1em;
+    padding: 0.5em;
+    padding-left: 0.1em;
+    background-color: #858585;
+}
+/* fin connexion */
+
+#section {
+    position: fixed; 
+    top: 16em; 
+    bottom: 0; 
+    left: 30em; 
+    right: 0;
+    text-align: center;
+    width: 70em;
+    height: 37em;
+    border: solid 2px black;
+    background-color: #AAAAAA;
+}
+
+#choix {
+    margin: 1em;
+    margin-left: 17em;
+    background-color: #D9D9D9;
+    border: solid 2px black;
+}
+
+.choixspe {
+    margin-top: 1em;
+}
+
+#ligne {
+    margin: 1em;
+    height: 5em;
+    background-color: #D9D9D9;
+    border: solid 2px black;
+}
+
+.resultatligne {
+    background-color: #D9D9D9;
+    border: solid 2px black;
+}
+
+.lignass {
+    padding-top: 25px;
+    width: 9em;
+}
+
+.lignette {
+    width: 7em;
+    padding-top: 25px;
+}
+
+.ligneron {
+    width: 5em;
+    padding-top: 25px;
+}
+
+.codebarre {
+    height: 4em;
+    padding-top:10px;
+}
+
+
+
