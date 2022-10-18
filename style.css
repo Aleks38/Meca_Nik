@@ -1,0 +1,49 @@
+.bandeau{
+    width: 7%;
+}
+.header-content{
+    font-size: 80px;
+    font-family: Impact;
+    color : black;
+    background-color : #969696;
+    text-align: left;
+}
+.navbar{
+    height: 50px;
+    padding-top: 0%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.nav-list{
+    display: inline-block;
+    
+}
+.nav-item{
+    background-color: #ffffff;
+    font-size: 30px;
+    color: black;
+    font-weight : 500;
+    margin-left: 15px;
+    border: solid black 5px;
+}
+.champ-recherche{
+    font-size: 30px;
+    color: black;
+    font-weight : 500;
+    border: solid black 5px;
+}
+.body{
+    background-color : #a00000;
+}
+#main{
+    padding: 0px 0px 0px 0px;
+}
+.contenuPage{
+    background-color: #ffffff;
+    height: auto;
+}
+.tableauProduit{
+    border: solid 2px;
+    padding-left: 5px;
+    color : black;
+}
