@@ -1,49 +1,106 @@
 <!doctype html>
 <html lang="fr">
     <head>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Connexion</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     </head>
     <body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+
+        <?php 
+            include "sqlConnect.php";
+        ?>
 
     <!-- gros carrée avec info et champs de connextion -->
-    <div id="connect">
-        <div id="blabla">
-            <!-- info -->
-            <div id="paragraphe">
-                <p>Pour accéder aux fonctionnalités qui vous sont prédisposés, veuillez vous connecter à l’aide du formulaire ci dessous.</p>
-            </div>
+    <div class="header-full container-fluide row ">
+        <div class="center-div col-4 px-0">
+            <div class="mx-3 my-3 center-div">
+                <!-- info -->
+                <div id="paragraphe">
+                    <p>Pour accéder aux fonctionnalités qui vous sont prédisposés, veuillez vous conncter à l'aide du formulaire ci-dessous.</p>
+                </div>
 
-            <!-- champs de connextion -->
-            <form action="" method="get" class="form-example" id="champsconnection">
-                <div class="form-example input">
-                    <label for="identifiant">Mon identifiant :</label>
-                    <input type="text" name="identifiant" id="identifiant" required>
-                </div>
-                <div class="form-example input">
-                    <label for="password">Mot de passe :</label>
-                    <input type="password" name="password" id="password" required>
-                </div>
-                <div id="oublie">
-                    <a href="">J'ai oublié mon mot de passe</a>
-                </div>
-                <div class="form-example champs">
-                    <input type="submit" value="Se connecter">
-                </div>
-            </form>
+                <!-- champs de connextion -->
+                <form action="" method="post" class="form-example" id="champsconnection">
+
+                    <!-- <div class="form-example input row">
+                        <div class="col">
+                           <p class="text-end mb-0">Nom d'utilisateur :</p> 
+                        </div>
+                        <div class="col">
+                            <input type="text" name="username" id="username" required>
+                        </div>
+                    </div> -->
+
+                    <div class="form-example input row">
+                        <div class="col">
+                            <p class="text-end mb-0">Adresse mail :</p>
+                        </div>
+                        <div class="col">
+                            <input type="text" name="email" id="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-example input row">
+                        <div class="col">
+                            <p class="text-end mb-0">Mot de passe :</p>
+                        </div>
+                        <div class="col">
+                           <input type="password" name="password" id="password" required> 
+                        </div>
+                    </div>
+
+                    <div class="form-example champs">
+                        <input type="submit" value="Connexion">
+                    </div>    
+                    <?php 
+                        if (isset($_POST['email']))
+                        {
+                            
+                            $adresseVerif = $_POST['email'];
+                            $sqlRequete1 = "SELECT * FROM users where adresseMail = '$adresseVerif'";
+                            $recipesStatement = $mysqlClient->prepare($sqlRequete1);
+                            $recipesStatement->execute();
+                            $recipes = $recipesStatement->fetchAll();
+                            if(count($recipes) > 0){
+                                foreach ($recipes as $recepe)
+                                {
+                                    if($_POST['email'] == $recepe['adresseMail'] and password_verify($_POST['password'], $recepe['password']))
+                                    {
+                                        ?>
+                                            <div class="col-10 mx-auto">
+                                                <h3 class="username">
+                                                    <span class="badge badge-warning"><?php echo "Bonjour ", $recepe['nom'], " ", $recepe['prenom'],"."?></span>
+                                                </h3>
+                                            </div>
+                                        <?php
+                                    }
+                                    else{
+                                        echo false ;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                ?>
+                                    <div class="col-10 mx-auto">
+                                        <p class="erreurConnexion">Votre identifiant et le mot de passe ne correspondent à aucun compte existant. Veuillez réessayer.</p>
+                                    </div>
+                                <?php
+                            }  
+                        }
+                    ?>               
+               </form>
+            </div>
         </div>
         <!-- fin du champs de connextion -->
     </div>
     <!-- fin gros carrée avec info et champs de connextion -->
     
     </body>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </html>
