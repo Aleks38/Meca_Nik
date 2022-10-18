@@ -26,6 +26,10 @@
     margin-left: 15px;
     border: solid black 5px;
 }
+.nav-item:hover{
+    color: #a00000;
+    text-decoration: none;
+}
 .champ-recherche{
     font-size: 30px;
     color: black;
@@ -46,4 +50,10 @@
     border: solid 2px;
     padding-left: 5px;
     color : black;
+    width: auto;
+    padding-right:10px;
+    text-align: center;
+}
+#Titre{
+    text-align: left;
 }

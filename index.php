@@ -1,3 +1,4 @@
+<!-- page index à inclure sur toutes les autres pages, contient le header,la navbar et le bandeau lattéral et la connexion à la bdd -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,7 @@
     <title>Méca_Nik</title>
 </head>
 <body class=body>
+    <?php include "ConnectToBdd.php";?> 
     <div class="section">
     <div class="row mr-0">
         <div class="col- bandeau"></div>        
@@ -17,7 +19,7 @@
             <p class="header-content">Entrepot Meca-Nik</p>
         <div class="navbar pl-0">
             <div class="col-sm pl-0">
-                <a href="index.php" type="button" class="nav-item">Réception Matérielle</a>
+                <a href="index.php" type="button" class="nav-item">Acceuil</a>
                 <a href="tableauProduit.php" class="nav-item">Inventaire</a>
             </div>
             <button type="button" class="champ-recherche">Recherches</button>
