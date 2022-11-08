@@ -81,7 +81,11 @@
                                         <?php
                                     }
                                     else{
-                                        echo false ;
+                                        ?>
+                                            <div class="col-10 mx-auto">
+                                                <p class="erreurConnexion">Mot de passe faux</p>
+                                            </div>
+                                        <?php
                                     }
                                 }
                             }
@@ -89,7 +93,7 @@
                             {
                                 ?>
                                     <div class="col-10 mx-auto">
-                                        <p class="erreurConnexion">Votre identifiant et le mot de passe ne correspondent à aucun compte existant. Veuillez réessayer.</p>
+                                        <p class="erreurConnexion">Identifiant non enregistré</p>
                                     </div>
                                 <?php
                             }  

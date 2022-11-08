@@ -1,32 +1,28 @@
-<!doctype html>
-<html lang="en">
+<!-- page index à inclure sur toutes les autres pages, contient le header,la navbar et le bandeau lattéral et la connexion à la bdd -->
+<!DOCTYPE html>
+<html>
     <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+
+        <title>Méca_Nik</title>
     </head>
-    <body>
-        <h1>Hello, world!</h1>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+    <body class=body>
+        <?php include "sqlConnect.php";?> 
+        <div class="section">
+        <div class="row mr-0">
+            <div class="col-bandeau"></div>        
+            <div class="col-sm" id="main">
+                <p class="header-content">Entrepot Meca-Nik</p>
+            <div class="navbar pl-0">
+                <div class="col-sm pl-0">
+                    <a href="index.php" type="button" class="nav-item">Acceuil</a>
+                    <a href="tableauProduit.php" class="nav-item">Inventaire</a>
+                </div>
+                <button type="button" class="champ-recherche">Recherches</button>
+            </div>
     </body>
 </html>
-
-<?php
-    include 'sqlConnect.php'
-?>
-<?php 
-    $sqlRequeteTest = "Select batiment from produit where nom = 'Pneus'; ";
-    $recipesStatement = $mysqlClient->prepare($sqlRequeteTest);
-    $recipesStatement->execute();
-    $recipes = $recipesStatement->fetchAll();
-
-    foreach ($recipes as $recipe)
-    {
-        ?>
-        <p><?php echo $recipe['batiment'];?></p>
-        <?php
-    }
-?>
