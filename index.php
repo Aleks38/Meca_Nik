@@ -14,16 +14,16 @@
     <?php include "ConnectToBdd.php";?> 
     <div class="section">
     <div class="row mr-0">
-        <div class="col- bandeau"></div>        
+        <div class=" bandeau"></div>        
         <div class="col-sm" id="main">
             <p class="header-content">Entrepot Meca-Nik</p>
         <div class="navbar pl-0">
             <div class="col-sm pl-0">
                 <a href="index.php" type="button" class="nav-item">Acceuil</a>
-                <a href="tableauProduit.php" class="nav-item">Inventaire</a>
+                <a href="menu.php" class="nav-item">Inventaire</a>
+                <a href="tableauProduit.php" class="nav-item">Inventaire 2</a>
             </div>
             <button type="button" class="champ-recherche">Recherches</button>
         </div>
 </body>
-
 </html>
